@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:plantopia/screens/cart_page.dart';
+import 'package:plantopia/screens/favorite_page.dart';
+import 'package:plantopia/screens/home_page.dart';
+import 'package:plantopia/screens/profile_page.dart';
 
 class Constants {
   static const Color primaryColor = Color(0xFF296E48);
@@ -12,4 +16,22 @@ class Constants {
   static const String descriptionTwo = "رز مشکی یا گل رز دوست داری؟ اینجا میتونی پیداش کنی";
   static const String titleThree = "با یک گل بهار نمیشود، گل بکار";
   static const String descriptionThree = "هر گلی نیاز داشته باشید در این اپلیکیشن پیدا میکنید";
+  static const List<String> appBarTitle = <String>['خانه', 'علاقه‌مندی‌ها', 'سبد‌خرید', 'پروفایل'];
+  static const List<IconData> iconList = <IconData>[Icons.home, Icons.favorite, Icons.shopping_cart, Icons.person];
+
+  static List<Widget> pages() {
+    return const <Widget>[
+      HomePage(),
+      FavoritePage(),
+      CartPage(),
+      ProfilePage(),
+    ];
+  }
+
+  static const List<Widget> page = <Widget>[
+    HomePage(),
+    FavoritePage(),
+    CartPage(),
+    ProfilePage(),
+  ];
 }
