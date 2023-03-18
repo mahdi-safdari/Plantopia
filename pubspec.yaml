@@ -38,6 +38,8 @@ dependencies:
   smooth_page_indicator: ^1.0.1
   page_transition: ^2.0.9
   animated_bottom_navigation_bar: ^1.2.0
+  delayed_widget: ^1.1.2
+  animated_page_transition: ^0.0.1+2
 
 dev_dependencies:
   flutter_test:

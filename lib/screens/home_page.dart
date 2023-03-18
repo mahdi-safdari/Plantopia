@@ -5,7 +5,7 @@ import 'package:plantopia/core/widgets/detail_page.dart';
 import 'package:plantopia/core/widgets/extensions.dart';
 import 'package:plantopia/core/widgets/model.dart';
 
-import '../core/widgets/plant_widget.dart';
+import 'package:plantopia/core/widgets/plant_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
             //! Search Box
@@ -184,7 +185,7 @@ class _HomePageState extends State<HomePage> {
             //! New Plants - Product 2
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
-              height: size.height * 0.3,
+              height: size.height * 0.5,
               child: ListView.builder(
                 itemCount: _plantList.length,
                 physics: const BouncingScrollPhysics(),
@@ -193,6 +194,8 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+            //! Space
+            const SizedBox(height: 30),
           ],
         ),
       ),
