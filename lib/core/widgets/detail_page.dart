@@ -57,37 +57,7 @@ class _DetailPageState extends State<DetailPage> {
             ),
           ),
 
-          Positioned(
-            top: 100.0,
-            left: 20.0,
-            right: 20.0,
-            child: Container(
-              width: size.width * 0.8,
-              height: size.height * 0.8,
-              padding: const EdgeInsets.all(20.0),
-              child: Stack(
-                children: <Widget>[
-                  //! Plant Feature
-                  Positioned(
-                    top: 10.0,
-                    right: 0.0,
-                    child: SizedBox(
-                      height: 200.0,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          PlantFeature(title: 'اندازه‌گیاه', plantFeature: data.size),
-                          PlantFeature(title: 'رطوبت‌هوا', plantFeature: data.humidity.toString().farsiNumber),
-                          PlantFeature(title: 'دمای‌نگهداری', plantFeature: data.temperature.toString().farsiNumber),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          //! Detail bottom
           Positioned(
             bottom: 0.0,
             left: 0.0,
@@ -106,7 +76,7 @@ class _DetailPageState extends State<DetailPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
+                    children: <Widget>[
                       //! Star
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -156,6 +126,39 @@ class _DetailPageState extends State<DetailPage> {
           ),
           //! Product Image
           Positioned(top: 120.0, left: 50.0, child: SizedBox(height: 350.0, child: Image.asset(data.imageURL))),
+          //! Detail up
+          Positioned(
+            top: 100.0,
+            left: 249.0,
+            right: 20.0,
+            child: Container(
+              width: size.width * 0.2,
+              height: size.height * 0.32,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Constants.primaryColor.withOpacity(0.1)),
+              padding: const EdgeInsets.all(20.0),
+              child: Stack(
+                children: <Widget>[
+                  //! Plant Feature
+                  Positioned(
+                    top: 10.0,
+                    right: 0.0,
+                    child: SizedBox(
+                      height: 200.0,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          PlantFeature(title: 'اندازه‌گیاه', plantFeature: data.size),
+                          PlantFeature(title: 'رطوبت‌هوا', plantFeature: data.humidity.toString().farsiNumber),
+                          PlantFeature(title: 'دمای‌نگهداری', plantFeature: data.temperature.toString().farsiNumber),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       floatingActionButton: SizedBox(

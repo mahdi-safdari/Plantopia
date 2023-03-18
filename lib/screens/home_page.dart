@@ -5,6 +5,8 @@ import 'package:plantopia/core/widgets/detail_page.dart';
 import 'package:plantopia/core/widgets/extensions.dart';
 import 'package:plantopia/core/widgets/model.dart';
 
+import '../core/widgets/plant_widget.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -166,6 +168,28 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   );
+                },
+              ),
+            ),
+            //! New Plants - Text
+            Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 18.0, bottom: 15.0, top: 20.0),
+              child: const Text(
+                'گیاهان جدید',
+                style: TextStyle(fontFamily: Constants.lalezar, fontSize: 18.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+
+            //! New Plants - Product 2
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              height: size.height * 0.3,
+              child: ListView.builder(
+                itemCount: _plantList.length,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (BuildContext context, int index) {
+                  return NewPlantWidget(plantList: _plantList, index: index);
                 },
               ),
             ),

@@ -20,11 +20,6 @@ class Constants {
   static const List<IconData> iconList = <IconData>[Icons.home, Icons.favorite, Icons.shopping_cart, Icons.person];
   static const List<String> plantTypes = ['پیشنهادی', 'آپارتمانی', 'محل‌کار', 'گل باغچه‌ایی', 'گل سمی'];
   static List<Widget> pages() {
-    return const <Widget>[
-      HomePage(),
-      FavoritePage(),
-      CartPage(),
-      ProfilePage(),
-    ];
+    return const <Widget>[HomePage(), FavoritePage(), CartPage(), ProfilePage()];
   }
 }
