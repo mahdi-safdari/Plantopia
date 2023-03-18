@@ -18,7 +18,7 @@ class Constants {
   static const String descriptionThree = "هر گلی نیاز داشته باشید در این اپلیکیشن پیدا میکنید";
   static const List<String> appBarTitle = <String>['خانه', 'علاقه‌مندی‌ها', 'سبد‌خرید', 'پروفایل'];
   static const List<IconData> iconList = <IconData>[Icons.home, Icons.favorite, Icons.shopping_cart, Icons.person];
-
+  static const List<String> plantTypes = ['پیشنهادی', 'آپارتمانی', 'محل‌کار', 'گل باغچه‌ایی', 'گل سمی'];
   static List<Widget> pages() {
     return const <Widget>[
       HomePage(),
