@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:plantopia/core/constants/constants.dart';
+import 'package:plantopia/core/widgets/detail_page.dart';
+import 'package:plantopia/core/widgets/extensions.dart';
+import 'package:plantopia/core/widgets/model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +14,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
+  final List<Plant> _plantList = Plant.plantList;
+  bool toggleIsFavorit(bool isFavorites) {
+    return !isFavorites;
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -67,6 +76,93 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.w300,
                           color: selectedIndex == index ? Constants.primaryColor : Constants.blackColor,
                         ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            //! Product One
+            SizedBox(
+              height: size.height * 0.3,
+              child: ListView.builder(
+                itemCount: _plantList.length,
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                reverse: true,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageTransition(child: DetailPage(plantId: _plantList[index].plantId), type: PageTransitionType.topToBottom),
+                      );
+                    },
+                    child: Container(
+                      width: 200.0,
+                      margin: const EdgeInsets.symmetric(horizontal: 18.0),
+                      decoration: BoxDecoration(color: Constants.primaryColor.withOpacity(0.8), borderRadius: BorderRadius.circular(20.0)),
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            top: 10.0,
+                            right: 20.0,
+                            child: Container(
+                              height: 40.0,
+                              width: 40.0,
+                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(50.0)),
+                              child: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    bool isFavorited = toggleIsFavorit((_plantList[index].isFavorated));
+                                    _plantList[index].isFavorated = isFavorited;
+                                  });
+                                },
+                                icon: Icon(_plantList[index].isFavorated == true ? Icons.favorite : Icons.favorite_border_outlined, color: Constants.primaryColor, size: 20.0),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 50.0,
+                            right: 50.0,
+                            top: 50.0,
+                            bottom: 50.0,
+                            child: Image.asset(_plantList[index].imageURL),
+                          ),
+                          Positioned(
+                            bottom: 15.0,
+                            left: 20.0,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 2.0),
+                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20.0)),
+                              child: Text(
+                                r'$' + _plantList[index].price.toString().farsiNumber,
+                                style: const TextStyle(
+                                  color: Constants.primaryColor,
+                                  fontSize: 16.0,
+                                  fontFamily: Constants.lalezar,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 15.0,
+                            right: 20.0,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Text(
+                                  _plantList[index].category,
+                                  style: const TextStyle(fontFamily: Constants.yekanBakh, color: Colors.white70, fontSize: 14.0),
+                                ),
+                                Text(
+                                  _plantList[index].plantName,
+                                  style: const TextStyle(fontFamily: Constants.yekanBakh, color: Colors.white70, fontSize: 16.0, fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
