@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plantopia/core/constants/constants.dart';
 import 'package:plantopia/core/widgets/splash_page_generator.dart';
-import 'package:plantopia/screens/home_page.dart';
+import 'package:plantopia/screens/main_wrapper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SplashPage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
             padding: const EdgeInsets.only(top: 20.0, right: 20.0),
             child: InkWell(
               onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainWrapper()));
               },
               child: Text(
                 'رد کردن',
@@ -79,7 +79,7 @@ class _SplashPageState extends State<SplashPage> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HomePage(),
+                        builder: (context) => const MainWrapper(),
                       ),
                     );
                   }

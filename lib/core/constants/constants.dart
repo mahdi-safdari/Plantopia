@@ -27,11 +27,4 @@ class Constants {
       ProfilePage(),
     ];
   }
-
-  static const List<Widget> page = <Widget>[
-    HomePage(),
-    FavoritePage(),
-    CartPage(),
-    ProfilePage(),
-  ];
 }
