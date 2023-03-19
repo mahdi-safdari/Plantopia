@@ -40,6 +40,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.2.0
   delayed_widget: ^1.1.2
   animated_page_transition: ^0.0.1+2
+  mobile_scanner: ^2.1.0
 
 dev_dependencies:
   flutter_test:

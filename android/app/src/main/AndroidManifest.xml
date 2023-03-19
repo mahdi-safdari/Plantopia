@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.plantopia">
+     <!-- Granting camera permission on Android -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- Granting camera permission on Android -->
    <application
         android:label="plantopia"
         android:name="${applicationName}"

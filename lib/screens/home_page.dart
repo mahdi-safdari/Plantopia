@@ -98,7 +98,13 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        PageTransition(child: DetailPage(plantId: _plantList[index].plantId), type: PageTransitionType.topToBottom),
+                        PageTransition(
+                          child: DetailPage(plantId: _plantList[index].plantId),
+                          type: PageTransitionType.rotate,
+                          alignment: Alignment.center,
+                          duration: const Duration(milliseconds: 300),
+                          reverseDuration: const Duration(milliseconds: 300),
+                        ),
                       );
                     },
                     child: Container(

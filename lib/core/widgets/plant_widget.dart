@@ -21,7 +21,13 @@ class NewPlantWidget extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          PageTransition(child: DetailPage(plantId: data.plantId), type: PageTransitionType.rightToLeft),
+          PageTransition(
+            child: DetailPage(plantId: data.plantId),
+            type: PageTransitionType.size,
+            alignment: Alignment.center,
+            duration: const Duration(milliseconds: 300),
+            reverseDuration: const Duration(milliseconds: 300),
+          ),
         );
       },
       child: Container(
